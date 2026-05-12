@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Clínica Sorriso Pleno — Odontologia de excelência para toda a família. Agende sua consulta pelo WhatsApp."/>
+  <meta property="og:title" content="Clínica Sorriso Pleno"/>
+  <meta property="og:description" content="Odontologia de excelência. Clareamento, implantes, ortodontia e muito mais."/>
+  <meta property="og:type" content="website"/>
+  <meta name="theme-color" content="#0d1b2e"/>
+  <title>Clínica Sorriso Pleno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2e;
+      --navy2: #162438;
+      --navy3: #1e3050;
+      --gold: #c9a84c;
+      --gold-light: #e4c97a;
+      --gold-pale: #f5ecd4;
+      --cream: #faf8f4;
+      --cream2: #f2ede4;
+      --text-dark: #0d1b2e;
+      --text-mid: #4a5568;
+      --text-soft: #8a95a3;
+      --white: #ffffff;
+      --wa: #25D366;
+      --danger: #dc3545;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      background: var(--cream);
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade1 { animation: fadeUp .5s ease both; }
+    .fade2 { animation: fadeUp .5s .1s ease both; }
+    .fade3 { animation: fadeUp .5s .2s ease both; }
+    .fade4 { animation: fadeUp .5s .3s ease both; }
+    .fade5 { animation: fadeUp .5s .4s ease both; }
+
+    /* Hero */
+    .hero {
+      background: var(--navy);
+      padding: 2.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.15);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,.1);
+      pointer-events: none;
+    }
+    .logo-wrap {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.12);
+      border: 1px solid rgba(201,168,76,.35);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+      position: relative; z-index: 1;
+    }
+    .logo-wrap i { font-size: 32px; color: var(--gold); }
+    .clinic-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--white);
+      letter-spacing: .3px;
+      position: relative; z-index: 1;
+    }
+    .gold-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin: .75rem auto;
+      position: relative; z-index: 1;
+    }
+    .clinic-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      position: relative; z-index: 1;
+    }
+    .stars-row {
+      display: flex; align-items: center; justify-content: center; gap: 3px;
+      margin-top: 1rem;
+      position: relative; z-index: 1;
+    }
+    .stars-row i { font-size: 13px; color: var(--gold); }
+    .stars-row span { font-size: 11px; color: rgba(255,255,255,.55); margin-left: 4px; }
+
+    /* Urgency */
+    .urgency {
+      margin: 1.25rem 1rem 0;
+      background: rgba(220,53,69,.08);
+      border: 1px solid rgba(220,53,69,.25);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      text-decoration: none;
+    }
+    .urgency:hover { border-color: rgba(220,53,69,.5); background: rgba(220,53,69,.12); }
+    .urgency .u-icon { font-size: 20px; color: var(--danger); flex-shrink: 0; }
+    .urgency-text { flex: 1; }
+    .urgency-title { font-size: 13px; font-weight: 500; color: #c0392b; }
+    .urgency-sub { font-size: 11px; color: #e57373; margin-top: 1px; }
+    .urgency .u-arr { font-size: 14px; color: var(--danger); }
+
+    /* Section */
+    .section { padding: 1.25rem 1rem 0; }
+
+    /* Card */
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid rgba(13,27,46,.07);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(13,27,46,.06);
+    }
+    .card-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(13,27,46,.06);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .card-header-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-header-icon i { font-size: 16px; color: var(--gold); }
+    .card-header-title { font-size: 14px; font-weight: 500; color: var(--text-dark); }
+    .card-header-sub { font-size: 11px; color: var(--text-soft); margin-top: 2px; }
+    .card-body { padding: 1.25rem; }
+
+    /* Steps */
+    .step { display: none; }
+    .step.active { display: block; }
+
+    .step-dots { display: flex; gap: 5px; margin-bottom: 1.25rem; }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--cream2);
+      border: 1px solid rgba(13,27,46,.1);
+      transition: background .2s, width .2s, border-color .2s;
+    }
+    .dot.on { background: var(--gold); width: 18px; border-radius: 3px; border-color: var(--gold); }
+
+    .greeting {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; color: var(--text-dark); margin-bottom: 6px;
+    }
+    .hint { font-size: 12px; color: var(--text-soft); margin-bottom: 1rem; line-height: 1.5; }
+
+    /* Name input */
+    .name-row { display: flex; gap: 8px; }
+    .name-row input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid rgba(13,27,46,.12);
+      border-radius: 10px;
+      font-size: 13px; font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .name-row input:focus { border-color: var(--gold); }
+    .name-row input::placeholder { color: var(--text-soft); }
+    .name-row button {
+      padding: 10px 16px;
+      background: var(--navy); border: none; border-radius: 10px;
+      font-size: 13px; font-family: 'DM Sans', sans-serif;
+      color: var(--white); cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .name-row button:hover { background: var(--navy2); }
+
+    /* Menu */
+    .menu-list { display: flex; flex-direction: column; gap: 6px; }
+    .menu-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(13,27,46,.07);
+      border-radius: 12px;
+      background: var(--cream);
+      cursor: pointer;
+      transition: border-color .15s, background .15s, box-shadow .15s;
+      text-align: left; width: 100%;
+    }
+    .menu-item:hover {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      box-shadow: 0 2px 8px rgba(201,168,76,.15);
+    }
+    .menu-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--white);
+      border: 1px solid rgba(13,27,46,.07);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s;
+    }
+    .menu-icon i { font-size: 17px; color: var(--navy); }
+    .menu-info { flex: 1; }
+    .menu-label { font-size: 13px; font-weight: 500; color: var(--text-dark); }
+    .menu-price { font-size: 11px; color: var(--text-soft); margin-top: 1px; }
+    .menu-arr { font-size: 14px; color: var(--text-soft); transition: color .15s; }
+    .menu-item:hover .menu-arr { color: var(--gold); }
+    .menu-item:hover .menu-label { color: var(--navy); }
+
+    .menu-item.wa { border-color: rgba(37,211,102,.2); background: #f0fff4; }
+    .menu-item.wa:hover { border-color: var(--wa); background: #e6ffee; box-shadow: 0 2px 8px rgba(37,211,102,.15); }
+    .menu-item.wa .menu-icon { background: #e6ffee; border-color: rgba(37,211,102,.2); }
+    .menu-item.wa .menu-icon i { color: var(--wa); }
+    .menu-item.wa .menu-label { color: #1a7a3c; }
+    .menu-item.wa .menu-arr { color: var(--wa); }
+
+    .menu-item.maps { border-color: rgba(234,67,53,.15); background: #fff8f8; }
+    .menu-item.maps:hover { border-color: #ea4335; background: #fff0f0; box-shadow: 0 2px 8px rgba(234,67,53,.1); }
+    .menu-item.maps .menu-icon { background: #fff0f0; border-color: rgba(234,67,53,.15); }
+    .menu-item.maps .menu-icon i { color: #ea4335; }
+    .menu-item.maps .menu-label { color: #b53028; }
+    .menu-item.maps .menu-arr { color: #ea4335; }
+
+    /* Service detail */
+    .svc-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold-pale); border: 1px solid rgba(201,168,76,.3);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 12px; font-weight: 500; color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .svc-pill i { font-size: 12px; color: var(--gold); }
+    .svc-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; color: var(--navy); margin-bottom: .5rem;
+    }
+    .svc-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 1rem; }
+    .svc-price-box {
+      background: var(--navy); border-radius: 10px;
+      padding: 10px 14px; display: flex; align-items: center; gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .svc-price-box i { font-size: 14px; color: var(--gold); }
+    .svc-price-box span { font-size: 13px; color: var(--white); font-weight: 500; }
+
+    /* Buttons */
+    .btn-wa {
+      width: 100%; padding: 13px;
+      background: var(--wa); border: none; border-radius: 12px;
+      color: var(--white); font-size: 14px; font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity .2s, transform .1s;
+    }
+    .btn-wa:hover { opacity: .92; }
+    .btn-wa:active { transform: scale(.98); }
+    .btn-wa i { font-size: 18px; }
+
+    .btn-back {
+      width: 100%; padding: 11px; margin-top: 8px;
+      background: transparent; border: 1px solid rgba(13,27,46,.1);
+      border-radius: 12px; font-size: 13px; font-family: 'DM Sans', sans-serif;
+      color: var(--text-soft); cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-back:hover { border-color: rgba(13,27,46,.25); color: var(--text-dark); }
+
+    /* Testimonials */
+    .testimonials { display: flex; flex-direction: column; gap: 10px; }
+    .tcard {
+      background: var(--cream); border-radius: 12px;
+      border: 1px solid rgba(13,27,46,.06); padding: 14px;
+    }
+    .tcard-stars { display: flex; gap: 2px; margin-bottom: 8px; }
+    .tcard-stars i { font-size: 11px; color: var(--gold); }
+    .tcard-text { font-size: 12px; color: var(--text-mid); line-height: 1.7; margin-bottom: 8px; font-style: italic; }
+    .tcard-author { display: flex; align-items: center; gap: 8px; }
+    .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--navy); display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 500; color: var(--gold); flex-shrink: 0;
+    }
+    .author-name { font-size: 11px; font-weight: 500; color: var(--text-dark); }
+    .author-since { font-size: 10px; color: var(--text-soft); }
+
+    /* Info list */
+    .info-list { display: flex; flex-direction: column; }
+    .info-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(13,27,46,.05);
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--gold-pale); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon i { font-size: 15px; color: var(--gold); }
+    .info-text { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+    .info-text strong { color: var(--text-dark); font-weight: 500; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem 0;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 380px) {
+      .clinic-name { font-size: 19px; }
+      .name-row button { padding: 10px 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero fade1">
+    <div class="logo-wrap"><i class="ti ti-tooth" aria-hidden="true"></i></div>
+    <div class="clinic-name">Clínica Sorriso Pleno</div>
+    <div class="gold-line"></div>
+    <div class="clinic-sub">Odontologia de excelência</div>
+    <div class="stars-row">
+      <i class="ti ti-star-filled" aria-hidden="true"></i>
+      <i class="ti ti-star-filled" aria-hidden="true"></i>
+      <i class="ti ti-star-filled" aria-hidden="true"></i>
+      <i class="ti ti-star-filled" aria-hidden="true"></i>
+      <i class="ti ti-star-filled" aria-hidden="true"></i>
+      <span>4.9 · 127 avaliações no Google</span>
+    </div>
+  </div>
+
+  <!-- URGÊNCIA -->
+  <div class="urgency fade2" onclick="openUrgency()" role="button" tabindex="0" aria-label="Atendimento de urgência">
+    <i class="ti ti-alert-circle u-icon" aria-hidden="true"></i>
+    <div class="urgency-text">
+      <div class="urgency-title">Está com dor agora?</div>
+      <div class="urgency-sub">Atendimento de urgência disponível hoje</div>
+    </div>
+    <i class="ti ti-arrow-right u-arr" aria-hidden="true"></i>
+  </div>
+
+  <!-- FLUXO DE ATENDIMENTO -->
+  <div class="section fade3">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="ti ti-message-heart" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-header-title">Atendimento personalizado</div>
+          <div class="card-header-sub">Tire dúvidas e agende em 2 minutos</div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <div class="step-dots">
+          <div class="dot on" id="d0"></div>
+          <div class="dot" id="d1"></div>
+          <div class="dot" id="d2"></div>
+        </div>
+
+        <!-- STEP 0 — Nome -->
+        <div class="step active" id="s0">
+          <div class="greeting">Olá, seja bem-vindo! 👋</div>
+          <div class="hint">Antes de tudo, como podemos te chamar?</div>
+          <div class="name-row">
+            <input type="text" id="nameInput" placeholder="Seu nome..." maxlength="40"
+              onkeydown="if(event.key==='Enter')submitName()" autocomplete="given-name"/>
+            <button onclick="submitName()">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 1 — Menu -->
+        <div class="step" id="s1">
+          <div class="greeting" id="greeting2">O que você precisa hoje?</div>
+          <div class="hint">Selecione uma opção para ver detalhes e valores</div>
+          <div class="menu-list">
+            <button class="menu-item" onclick="showService('clareamento')">
+              <div class="menu-icon"><i class="ti ti-sparkles" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Clareamento dental</div><div class="menu-price">A partir de R$ 350</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item" onclick="showService('aparelho')">
+              <div class="menu-icon"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Aparelho ortodôntico</div><div class="menu-price">A partir de R$ 180/mês</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item" onclick="showService('implante')">
+              <div class="menu-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Implante dentário</div><div class="menu-price">A partir de R$ 1.800</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item" onclick="showService('limpeza')">
+              <div class="menu-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Limpeza e prevenção</div><div class="menu-price">A partir de R$ 120</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item" onclick="showService('protese')">
+              <div class="menu-icon"><i class="ti ti-device-heart-monitor" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Prótese dentária</div><div class="menu-price">A partir de R$ 800</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item wa" onclick="goWA('atendimento geral')">
+              <div class="menu-icon"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Falar com a recepção</div><div class="menu-price">Resposta em minutos</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item maps" onclick="openMaps()">
+              <div class="menu-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+              <div class="menu-info"><div class="menu-label">Como chegar</div><div class="menu-price">Ver no Google Maps</div></div>
+              <i class="ti ti-chevron-right menu-arr" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2 — Serviço detalhe -->
+        <div class="step" id="s2">
+          <div class="svc-pill"><i class="ti ti-tag" aria-hidden="true"></i><span id="svc-pill-label"></span></div>
+          <div class="svc-name" id="svc-name"></div>
+          <div class="svc-desc" id="svc-desc"></div>
+          <div class="svc-price-box">
+            <i class="ti ti-currency-dollar" aria-hidden="true"></i>
+            <span id="svc-price"></span>
+          </div>
+          <button class="btn-wa" id="svc-wa-btn">
+            <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+            Quero agendar este serviço
+          </button>
+          <button class="btn-back" onclick="goTo('s1',1)">← Voltar ao menu</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPOIMENTOS -->
+  <div class="section fade4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-header-title">O que nossos pacientes dizem</div>
+          <div class="card-header-sub">Avaliações reais do Google</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="testimonials">
+          <div class="tcard">
+            <div class="tcard-stars">
+              <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <div class="tcard-text">"Fiz o clareamento e fiquei impressionada com o resultado. Atendimento super atencioso e sem nenhuma dor. Me senti acolhida desde a recepção!"</div>
+            <div class="tcard-author">
+              <div class="avatar">MS</div>
+              <div><div class="author-name">Maria S.</div><div class="author-since">Paciente há 2 anos</div></div>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcard-stars">
+              <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <div class="tcard-text">"Coloquei implante aqui e não podia estar mais satisfeito. Equipe profissional, ambiente moderno e o resultado superou minhas expectativas."</div>
+            <div class="tcard-author">
+              <div class="avatar">CR</div>
+              <div><div class="author-name">Carlos R.</div><div class="author-since">Paciente há 1 ano</div></div>
+            </div>
+          </div>
+          <div class="tcard">
+            <div class="tcard-stars">
+              <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i><i class="ti ti-star-filled" aria-hidden="true"></i>
+              <i class="ti ti-star-filled" aria-hidden="true"></i>
+            </div>
+            <div class="tcard-text">"Minha filha tinha muito medo de dentista. Aqui ela foi tratada com tanta delicadeza que hoje ela até gosta de vir. Recomendo demais!"</div>
+            <div class="tcard-author">
+              <div class="avatar">AL</div>
+              <div><div class="author-name">Ana L.</div><div class="author-since">Paciente há 3 anos</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFORMAÇÕES -->
+  <div class="section fade5">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon"><i class="ti ti-info-circle" aria-hidden="true"></i></div>
+        <div>
+          <div class="card-header-title">Informações úteis</div>
+          <div class="card-header-sub">Tudo que você precisa saber</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-icon"><i class="ti ti-clock" aria-hidden="true"></i></div>
+            <div class="info-text"><strong>Seg–Sex</strong> 8h às 18h &nbsp;·&nbsp; <strong>Sáb</strong> 8h às 12h</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+            <div class="info-text">Rua das Flores, 142 · Centro · Sua cidade – SC</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="ti ti-phone" aria-hidden="true"></i></div>
+            <div class="info-text">(47) 99999-0000</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="ti ti-credit-card" aria-hidden="true"></i></div>
+            <div class="info-text">Convênios, cartão de crédito e parcelamento em até 12x</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer fade5">
+    Clínica Sorriso Pleno · Todos os direitos reservados
+  </div>
+
+</div>
+
+<script>
+  var userName = '';
+
+  var services = {
+    clareamento: {
+      label: 'Clareamento dental',
+      name: 'Sorriso mais branco e luminoso',
+      desc: 'Procedimento seguro que clareia os dentes em até 8 tons em uma única sessão. Utilizamos gel com ativação LED de última geração — sem sensibilidade excessiva e com resultado visível no mesmo dia.',
+      price: 'A partir de R$ 350 · Sessão única com avaliação gratuita'
+    },
+    aparelho: {
+      label: 'Aparelho ortodôntico',
+      name: 'Alinhamento com conforto e discrição',
+      desc: 'Trabalhamos com aparelho metálico, estético e alinhador invisível. Primeira consulta gratuita para avaliação e planejamento personalizado do seu caso.',
+      price: 'A partir de R$ 180/mês · Duração de 12 a 24 meses'
+    },
+    implante: {
+      label: 'Implante dentário',
+      name: 'Dente permanente, sorriso completo',
+      desc: 'Substituição permanente do dente perdido com titânio de alta qualidade. Procedimento indolor com anestesia local, osseointegração natural e resultado para toda a vida.',
+      price: 'A partir de R$ 1.800 · Parcelamento em até 18x'
+    },
+    limpeza: {
+      label: 'Limpeza e prevenção',
+      name: 'Saúde bucal em dia, sempre',
+      desc: 'Profilaxia completa com remoção de tártaro, polimento dental e aplicação de flúor. Recomendada a cada 6 meses para prevenir cáries e doenças gengivais.',
+      price: 'A partir de R$ 120 · Inclui raio-X panorâmico'
+    },
+    protese: {
+      label: 'Prótese dentária',
+      name: 'Função e estética restauradas',
+      desc: 'Próteses fixas e removíveis personalizadas para repor dentes com estética natural e mastigação eficiente. Avaliação gratuita para indicação do melhor tipo para você.',
+      price: 'A partir de R$ 800 · Parcelamento em até 12x'
+    }
+  };
+
+  function submitName() {
+    var v = document.getElementById('nameInput').value.trim();
+    if (!v) {
+      document.getElementById('nameInput').focus();
+      return;
+    }
+    userName = v;
+    document.getElementById('greeting2').textContent = 'O que você precisa hoje, ' + userName + '? 😊';
+    goTo('s1', 1);
+  }
+
+  function goTo(id, dot) {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    if (dot !== undefined) {
+      document.querySelectorAll('.dot').forEach(function(d, i) { d.classList.toggle('on', i === dot); });
+    }
+  }
+
+  function showService(key) {
+    var s = services[key];
+    document.getElementById('svc-pill-label').textContent = s.label;
+    document.getElementById('svc-name').textContent = s.name;
+    document.getElementById('svc-desc').textContent = s.desc;
+    document.getElementById('svc-price').textContent = s.price;
+    document.getElementById('svc-wa-btn').onclick = function() { goWA(s.label); };
+    goTo('s2', 2);
+  }
+
+  function goWA(ctx) {
+    var nome = userName || 'paciente';
+    var msg = encodeURIComponent(
+      'Olá! Me chamo ' + nome + ' e vim pela página da Clínica Sorriso Pleno.\n\n' +
+      '🦷 Interesse em: ' + ctx + '\n\n' +
+      'Gostaria de mais informações e agendar uma consulta!'
+    );
+    window.open('https://wa.me/5547999990000?text=' + msg, '_blank');
+  }
+
+  function openMaps() {
+    window.open('https://maps.google.com/?q=Clinica+Sorriso+Pleno', '_blank');
+  }
+
+  function openUrgency() {
+    var nome = userName || 'paciente';
+    var msg = encodeURIComponent(
+      '🚨 URGÊNCIA\n\n' +
+      'Olá! Me chamo ' + nome + ' e estou com dor.\n\n' +
+      'Preciso de atendimento o quanto antes. Há horário disponível hoje?'
+    );
+    window.open('https://wa.me/5547999990000?text=' + msg, '_blank');
+  }
+
+  document.querySelector('.urgency').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') openUrgency();
+  });
+</script>
+
+</body>
+</html>

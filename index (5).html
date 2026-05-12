@@ -1,0 +1,654 @@
+<html
+
+< html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Elos Cabeleireiros Unissex — R. Curt Hering, 385, Centro, Presidente Getúlio/SC. Seg–Sáb 08h–19h. (47) 99108-9781">
+<title>Elos Cabeleireiros Unissex — Presidente Getúlio/SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C8A84B;--gold-hi:#E8C96A;--gold-lo:#7A6228;
+  --ink:#080808;--ink2:#131313;--ink3:#1D1D1D;--ink4:#282828;
+  --cream:#F2E8D0;--cream2:#D4C49A;--muted:#7A7060;--muted2:#544E40;
+  --wa:#25D366;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:'Jost',sans-serif;overflow-x:hidden}
+
+/* ─── WHATSAPP FLUTUANTE ─── */
+.wa-float{
+  position:fixed;bottom:1.4rem;right:1.4rem;z-index:9999;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--wa);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.45);
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;
+  animation:wa-pulse 2.5s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.6)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45)}50%{box-shadow:0 4px 28px rgba(37,211,102,0.7)}}
+
+/* ─── TOPBAR ─── */
+.topbar{
+  background:var(--gold);padding:0.5rem 1.5rem;
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:0.4rem 1.4rem;align-items:center;
+}
+.topbar span{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.topbar a{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);font-weight:700;text-decoration:none}
+.topbar-dot{width:3px;height:3px;background:var(--ink);border-radius:50%;opacity:0.4}
+
+/* ─── NAV ─── */
+nav{
+  background:var(--ink);
+  border-bottom:1px solid rgba(200,168,75,0.18);
+  padding:1rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo{display:flex;align-items:center;gap:0.9rem;text-decoration:none}
+.nav-logo-mark{position:relative;width:40px;height:24px}
+.r{position:absolute;border-radius:50%;border:1.5px solid var(--gold)}
+.r1{width:20px;height:14px;top:0;left:0}
+.r2{width:20px;height:14px;top:5px;left:10px}
+.r3{width:20px;height:14px;top:0;left:20px}
+.nav-logo-type{line-height:1}
+.nav-logo-type .n1{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--gold);letter-spacing:0.14em;display:block}
+.nav-logo-type .n2{font-size:0.44rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
+.nav-links{list-style:none;display:flex;gap:2rem}
+.nav-links a{text-decoration:none;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);transition:color 0.25s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--ink);background:var(--gold);border:none;padding:0.65rem 1.2rem;
+  cursor:pointer;transition:background 0.25s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--gold-hi)}
+.nav-cta svg{width:14px;height:14px}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-ham span{width:24px;height:2px;background:var(--gold);display:block}
+.nav-mob{display:none;flex-direction:column;background:var(--ink2);border-top:1px solid rgba(200,168,75,0.15)}
+.nav-mob.open{display:flex}
+.nav-mob a{padding:1rem 1.5rem;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(200,168,75,0.08)}
+.nav-mob a:hover{color:var(--gold)}
+.mob-wa{background:var(--wa)!important;color:#fff!important;display:flex!important;align-items:center;gap:0.6rem;justify-content:center;padding:1rem!important}
+.mob-wa svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+
+/* ─── HERO ─── */
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.hero-left{
+  background:var(--ink2);padding:5rem 3rem 5rem 3.5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;border-right:1px solid rgba(200,168,75,0.12);
+}
+.hero-left::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.hero-eyebrow{font-size:0.58rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:flex;align-items:center;gap:0.8rem}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:400;line-height:1.08;color:var(--cream);margin-bottom:1rem}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-tagline{font-size:0.72rem;color:var(--muted);letter-spacing:0.08em;line-height:1.9;max-width:340px;margin-bottom:2.8rem;border-left:2px solid var(--gold-lo);padding-left:1rem}
+.hero-btns{display:flex;gap:0.8rem;align-items:center;margin-bottom:3.5rem;flex-wrap:wrap}
+.btn-fill{background:var(--gold);color:var(--ink);font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;padding:0.9rem 1.8rem;border:none;cursor:pointer;transition:background 0.25s;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-fill:hover{background:var(--gold-hi)}
+.btn-fill svg{width:14px;height:14px;fill:var(--ink)}
+.btn-ghost{background:transparent;color:var(--cream2);font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;padding:0.9rem 1.8rem;border:1px solid rgba(200,168,75,0.3);cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--gold);display:block;line-height:1}
+.stat-label{font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;display:block}
+.stat-divider{width:1px;background:rgba(200,168,75,0.15);align-self:stretch}
+.hero-right{background:var(--ink3);position:relative;overflow:hidden;display:flex;align-items:stretch;min-height:500px}
+.hero-right img{width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(0.8);display:block}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(19,19,19,0.4) 0%,transparent 60%)}
+.hero-badge{position:absolute;bottom:1.8rem;right:1.8rem;background:var(--gold);color:var(--ink);padding:0.7rem 1rem;text-align:center}
+.hero-badge .hb1{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;display:block;line-height:1}
+.hero-badge .hb2{font-size:0.46rem;letter-spacing:0.3em;text-transform:uppercase;display:block;margin-top:2px}
+.hero-unissex{position:absolute;top:1.5rem;left:1.5rem;background:rgba(8,8,8,0.75);border:1px solid rgba(200,168,75,0.35);padding:0.4rem 0.8rem;font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+
+/* ─── SECTIONS ─── */
+.sec{padding:5rem 1.5rem}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-head{margin-bottom:3rem}
+.sec-tag{font-size:0.57rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem}
+.sec-tag::before{content:'';width:20px;height:1px;background:var(--gold)}
+.sec-h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:400;color:var(--cream);line-height:1.15}
+.sec-h2 em{font-style:italic;color:var(--gold)}
+.sec-rule{width:32px;height:1px;background:var(--gold);margin-top:1rem}
+
+/* ─── SERVIÇOS ─── */
+.sec-servicos{background:var(--ink2)}
+.srv-layout{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start}
+.srv-intro p{font-size:0.7rem;color:var(--muted);line-height:1.9;margin-bottom:1.4rem}
+.srv-note{font-size:0.62rem;color:var(--gold-lo);border-top:1px solid rgba(200,168,75,0.15);padding-top:1rem;letter-spacing:0.05em;line-height:1.7}
+.srv-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:rgba(200,168,75,0.08)}
+.srv-card{position:relative;overflow:hidden;cursor:default;background:var(--ink3)}
+.srv-card-img{width:100%;height:190px;object-fit:cover;display:block;filter:brightness(0.55) saturate(0.7);transition:filter 0.5s ease,transform 0.5s ease}
+.srv-card:hover .srv-card-img{filter:brightness(0.35) saturate(0.5);transform:scale(1.04)}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:190px;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(8,8,8,0) 30%,rgba(8,8,8,0.85) 100%)}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width 0.4s ease;z-index:3}
+.srv-card:hover::after{width:100%}
+.srv-num{position:absolute;top:12px;left:14px;z-index:2;font-family:'Playfair Display',serif;font-size:0.68rem;color:var(--gold);letter-spacing:0.12em;background:rgba(8,8,8,0.55);padding:2px 7px}
+.srv-body{position:relative;z-index:2;padding:1rem 1.3rem 1.3rem;background:var(--ink3);border-top:1px solid rgba(200,168,75,0.08)}
+.srv-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--cream);margin-bottom:0.3rem}
+.srv-desc{font-size:0.62rem;color:var(--muted);line-height:1.8;margin-bottom:0.8rem}
+.srv-footer{display:flex;justify-content:space-between;align-items:center}
+.srv-price{font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold)}
+.srv-arrow{width:26px;height:26px;border:1px solid rgba(200,168,75,0.25);display:flex;align-items:center;justify-content:center;transition:all 0.25s;text-decoration:none}
+.srv-card:hover .srv-arrow{border-color:var(--gold);background:var(--gold)}
+.srv-arrow svg{width:11px;height:11px;stroke:var(--muted);fill:none;transition:stroke 0.25s}
+.srv-card:hover .srv-arrow svg{stroke:var(--ink)}
+
+/* ─── GALERIA ─── */
+.sec-galeria{background:var(--ink)}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:200px 200px;gap:2px;margin-top:2rem}
+.gal-cell{overflow:hidden;position:relative;cursor:pointer;background:var(--ink3)}
+.gal-img{width:100%;height:100%;object-fit:cover;filter:brightness(0.6) saturate(0.75);transition:filter 0.4s,transform 0.5s;display:block}
+.gal-cell:hover .gal-img{filter:brightness(0.45) saturate(0.6);transform:scale(1.05)}
+.gal-cell::after{content:'';position:absolute;inset:0;border:1px solid rgba(200,168,75,0);transition:border-color 0.3s}
+.gal-cell:hover::after{border-color:rgba(200,168,75,0.45)}
+.gal-overlay{position:absolute;bottom:0;left:0;right:0;padding:0.9rem 1rem;background:linear-gradient(transparent,rgba(8,8,8,0.85));opacity:0;transform:translateY(4px);transition:all 0.3s;z-index:1}
+.gal-cell:hover .gal-overlay{opacity:1;transform:translateY(0)}
+.gal-overlay p{font-family:'Playfair Display',serif;font-size:0.88rem;font-style:italic;color:var(--cream)}
+.gal-overlay small{font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.g1{grid-column:span 5;grid-row:span 2}.g2{grid-column:span 4}.g3{grid-column:span 3}
+.g4{grid-column:span 3}.g5{grid-column:span 4}.g6{grid-column:span 5}
+
+/* ─── DEPOIMENTOS ─── */
+.sec-dep{background:var(--ink2)}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(200,168,75,0.08)}
+.dep-card{background:var(--ink2);padding:2.2rem 1.8rem}
+.dep-stars{display:flex;gap:3px;margin-bottom:1.2rem}
+.dep-star{width:10px;height:10px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.dep-text{font-family:'Playfair Display',serif;font-size:0.92rem;font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:1.4rem}
+.dep-text::before{content:'\201C';color:var(--gold);font-size:1.4rem;line-height:0;vertical-align:-0.4rem;margin-right:3px}
+.dep-author{display:flex;align-items:center;gap:0.8rem}
+.dep-avatar{width:36px;height:36px;border-radius:50%;background:var(--ink4);border:1px solid rgba(200,168,75,0.2);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:0.8rem;color:var(--gold);flex-shrink:0}
+.dep-author-name{font-size:0.68rem;font-weight:500;color:var(--cream);letter-spacing:0.05em}
+.dep-author-info{font-size:0.58rem;color:var(--muted);letter-spacing:0.1em}
+
+/* ─── AGENDAMENTO ─── */
+.sec-agendar{background:var(--ink)}
+.agd-wrap{display:grid;grid-template-columns:5fr 7fr;gap:4rem;align-items:start}
+.agd-left-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--cream);margin-bottom:1.5rem;line-height:1.2}
+.agd-left-title em{font-style:italic;color:var(--gold)}
+.agd-p{font-size:0.7rem;color:var(--muted);line-height:1.9;margin-bottom:2rem}
+.contact-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(200,168,75,0.08)}
+.contact-row:last-child{border-bottom:none}
+.contact-icon{width:32px;height:32px;border:1px solid rgba(200,168,75,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.contact-icon svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.contact-label{font-size:0.56rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:0.2rem}
+.contact-value{font-size:0.72rem;color:var(--cream)}
+.contact-value a{color:var(--cream);text-decoration:none;transition:color 0.2s}
+.contact-value a:hover{color:var(--gold)}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:0.56rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
+.fg input,.fg select{width:100%;background:var(--ink2);border:1px solid rgba(200,168,75,0.15);color:var(--cream);padding:0.8rem 1rem;font-family:'Jost',sans-serif;font-size:0.75rem;outline:none;transition:border-color 0.25s;-webkit-appearance:none;appearance:none}
+.fg input:focus,.fg select:focus{border-color:var(--gold)}
+.fg select option{background:var(--ink2);color:var(--cream)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.submit-btn{width:100%;background:var(--wa);color:#fff;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;border:none;padding:1.1rem;cursor:pointer;transition:background 0.25s;margin-top:0.5rem;display:flex;align-items:center;justify-content:center;gap:0.7rem}
+.submit-btn:hover{background:#1eba57}
+.submit-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+/* ─── FOOTER ─── */
+footer{background:#050505;border-top:1px solid rgba(200,168,75,0.12)}
+.foot-top{padding:3.5rem 1.5rem 2.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto}
+.foot-brand-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;color:var(--gold);letter-spacing:0.18em;margin-bottom:0.2rem}
+.foot-brand-sub{font-size:0.52rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.foot-brand-p{font-size:0.67rem;color:var(--muted2);line-height:1.8;max-width:240px}
+.foot-col-title{font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:0.65rem}
+.foot-col ul li a{text-decoration:none;font-size:0.68rem;color:var(--muted);transition:color 0.2s}
+.foot-col ul li a:hover{color:var(--cream)}
+.foot-bottom{border-top:1px solid rgba(200,168,75,0.08);padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:0.8rem}
+.foot-copy{font-size:0.55rem;letter-spacing:0.12em;color:var(--muted2)}
+.social-row{display:flex;gap:0.6rem}
+.social-btn{width:32px;height:32px;border:1px solid rgba(200,168,75,0.2);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.25s}
+.social-btn:hover{border-color:var(--gold)}
+.social-btn svg{width:13px;height:13px;stroke:var(--muted);fill:none;stroke-width:1.5;transition:stroke 0.25s}
+.social-btn:hover svg{stroke:var(--gold)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:flex}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{min-height:280px}
+  .hero-left{padding:3rem 1.5rem}
+  .hero-stats{gap:1.5rem}
+  .srv-layout{grid-template-columns:1fr}
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1;height:180px}
+  .dep-grid{grid-template-columns:1fr}
+  .agd-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .foot-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .foot-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:560px){
+  .topbar{gap:0.3rem 0.8rem;padding:0.45rem 1rem}
+  .topbar-dot{display:none}
+  .hero-h1{font-size:2.3rem}
+  .hero-left{padding:2.5rem 1.2rem}
+  .hero-tagline{font-size:0.66rem}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .btn-fill,.btn-ghost{text-align:center;justify-content:center;width:100%}
+  .srv-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr}
+  .g1,.g2,.g3,.g4,.g5,.g6{height:190px}
+  .fg-row{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .hero-stats{gap:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a class="wa-float" href="https://wa.me/5547991089781" target="_blank" rel="noopener" title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Seg–Sáb 08h–19h</span>
+  <div class="topbar-dot"></div>
+  <a href="https://wa.me/5547991089781" target="_blank" rel="noopener">(47) 99108-9781</a>
+  <div class="topbar-dot"></div>
+  <span>R. Curt Hering, 385 — Centro · Pres. Getúlio/SC</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">
+      <div class="r r1"></div><div class="r r2"></div><div class="r r3"></div>
+    </div>
+    <div class="nav-logo-type">
+      <span class="n1">ELOS</span>
+      <span class="n2">Cabeleireiros Unissex</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#depoimentos">Avaliações</a></li>
+    <li><a href="#agendar">Agendar</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/5547991089781" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#080808"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <button class="nav-ham" id="hamBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MENU MOBILE -->
+<div class="nav-mob" id="navMob">
+  <a href="#servicos" onclick="closeMob()">Serviços</a>
+  <a href="#galeria" onclick="closeMob()">Galeria</a>
+  <a href="#depoimentos" onclick="closeMob()">Avaliações</a>
+  <a href="#agendar" onclick="closeMob()">Agendar</a>
+  <a class="mob-wa" href="https://wa.me/5547991089781" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar no WhatsApp · (47) 99108-9781
+  </a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Salão Unissex · Pres. Getúlio/SC</div>
+    <h1 class="hero-h1">Arte &amp;<br><em>Beleza</em><br>para todos</h1>
+    <p class="hero-tagline">Cortes, colorações e tratamentos com técnica e carinho — para homens e mulheres. R. Curt Hering, 385 — Centro.</p>
+    <div class="hero-btns">
+      <a class="btn-fill" href="https://wa.me/5547991089781?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#080808"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+      <a class="btn-ghost" href="#servicos">Ver serviços</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">15+</span><span class="stat-label">Anos de exp.</span></div>
+      <div class="stat-divider"></div>
+      <div><span class="stat-num">🚻</span><span class="stat-label">Unissex</span></div>
+      <div class="stat-divider"></div>
+      <div><span class="stat-num">★ 5</span><span class="stat-label">Google</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=85" alt="Salão Elos Cabeleireiros Unissex Presidente Getúlio SC" loading="eager" onerror="this.style.background='#1D1D1D';this.style.display='block'">
+    <div class="hero-img-overlay"></div>
+    <div class="hero-unissex">🚻 Unissex</div>
+    <div class="hero-badge"><span class="hb1">08–19h</span><span class="hb2">Seg · Sáb</span></div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<div class="sec sec-servicos" id="servicos">
+  <div class="sec-inner">
+    <div class="srv-layout">
+      <div>
+        <p class="sec-tag">O que fazemos</p>
+        <h2 class="sec-h2">Nossos<br><em>Serviços</em></h2>
+        <div class="sec-rule" style="margin-bottom:1.5rem"></div>
+        <div class="srv-intro">
+          <p>Cada atendimento é único. Usamos técnicas atualizadas e produtos de primeira linha para realçar sua beleza — seja homem ou mulher.</p>
+          <p class="srv-note">Consulte-nos para pacotes especiais pelo WhatsApp: (47) 99108-9781</p>
+        </div>
+      </div>
+      <div class="srv-grid">
+
+        <div class="srv-card">
+          <div class="srv-num">01</div>
+          <img class="srv-card-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" alt="Corte Feminino" loading="lazy" onerror="this.style.minHeight='190px';this.style.background='#1D1D1D'">
+          <div class="srv-body">
+            <div class="srv-name">Corte Feminino</div>
+            <p class="srv-desc">Corte sob medida para valorizar seu rosto e estilo de vida, com acabamento impecável.</p>
+            <div class="srv-footer">
+              <span class="srv-price">A partir de R$ 60</span>
+              <a class="srv-arrow" href="https://wa.me/5547991089781?text=Olá!%20Quero%20agendar%20Corte%20Feminino." target="_blank" rel="noopener" title="Agendar no WhatsApp">
+                <svg viewBox="0 0 12 12" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="srv-card">
+          <div class="srv-num">02</div>
+          <img class="srv-card-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="Coloração e Mechas" loading="lazy" onerror="this.style.minHeight='190px';this.style.background='#1D1D1D'">
+          <div class="srv-body">
+            <div class="srv-name">Coloração &amp; Mechas</div>
+            <p class="srv-desc">Tintura, balayage e luzes com técnicas modernas e cores que duram mais.</p>
+            <div class="srv-footer">
+              <span class="srv-price">A partir de R$ 120</span>
+              <a class="srv-arrow" href="https://wa.me/5547991089781?text=Olá!%20Quero%20agendar%20Coloração%20ou%20Mechas." target="_blank" rel="noopener">
+                <svg viewBox="0 0 12 12" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="srv-card">
+          <div class="srv-num">03</div>
+          <img class="srv-card-img" src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500&q=80" alt="Escova e Hidratação" loading="lazy" onerror="this.style.minHeight='190px';this.style.background='#1D1D1D'">
+          <div class="srv-body">
+            <div class="srv-name">Escova &amp; Hidratação</div>
+            <p class="srv-desc">Escova modeladora e tratamentos intensivos que devolvem brilho e maciez.</p>
+            <div class="srv-footer">
+              <span class="srv-price">A partir de R$ 50</span>
+              <a class="srv-arrow" href="https://wa.me/5547991089781?text=Olá!%20Quero%20agendar%20Escova%20ou%20Hidratação." target="_blank" rel="noopener">
+                <svg viewBox="0 0 12 12" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="srv-card">
+          <div class="srv-num">04</div>
+          <img class="srv-card-img" src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=500&q=80" alt="Progressiva" loading="lazy" onerror="this.style.minHeight='190px';this.style.background='#1D1D1D'">
+          <div class="srv-body">
+            <div class="srv-name">Progressiva</div>
+            <p class="srv-desc">Alisamento de longa duração com fórmulas avançadas, sem agredir os fios.</p>
+            <div class="srv-footer">
+              <span class="srv-price">A partir de R$ 200</span>
+              <a class="srv-arrow" href="https://wa.me/5547991089781?text=Olá!%20Quero%20saber%20sobre%20Progressiva." target="_blank" rel="noopener">
+                <svg viewBox="0 0 12 12" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="srv-card">
+          <div class="srv-num">05</div>
+          <img class="srv-card-img" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&q=80" alt="Corte Masculino" loading="lazy" onerror="this.style.minHeight='190px';this.style.background='#1D1D1D'">
+          <div class="srv-body">
+            <div class="srv-name">Corte Masculino</div>
+            <p class="srv-desc">Do clássico ao contemporâneo, cortes que expressam personalidade com precisão.</p>
+            <div class="srv-footer">
+              <span class="srv-price">A partir de R$ 40</span>
+              <a class="srv-arrow" href="https://wa.me/5547991089781?text=Olá!%20Quero%20agendar%20Corte%20Masculino." target="_blank" rel="noopener">
+                <svg viewBox="0 0 12 12" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="srv-card">
+          <div class="srv-num">06</div>
+          <img class="srv-card-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&q=80" alt="Penteado e Noivas" loading="lazy" onerror="this.style.minHeight='190px';this.style.background='#1D1D1D'">
+          <div class="srv-body">
+            <div class="srv-name">Penteado &amp; Noivas</div>
+            <p class="srv-desc">Criações exclusivas para festas, formaturas e o dia mais especial da sua vida.</p>
+            <div class="srv-footer">
+              <span class="srv-price">Consulte-nos</span>
+              <a class="srv-arrow" href="https://wa.me/5547991089781?text=Olá!%20Quero%20saber%20sobre%20Penteado%20ou%20Noivas." target="_blank" rel="noopener">
+                <svg viewBox="0 0 12 12" stroke-width="1.8"><path d="M2 10L10 2M4 2h6v6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERIA -->
+<div class="sec sec-galeria" id="galeria">
+  <div class="sec-inner">
+    <div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+      <div>
+        <p class="sec-tag">Nosso trabalho</p>
+        <h2 class="sec-h2"><em>Galeria</em></h2>
+        <div class="sec-rule"></div>
+      </div>
+      <a class="btn-ghost" href="https://wa.me/5547991089781" target="_blank" rel="noopener" style="white-space:nowrap;align-self:flex-end">Fale conosco</a>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-cell g1">
+        <img class="gal-img" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=700&q=80" alt="Transformação completa" loading="lazy" onerror="this.style.background='#1D1D1D';this.remove()">
+        <div class="gal-overlay"><p>Transformação completa</p><small>Coloração · Corte</small></div>
+      </div>
+      <div class="gal-cell g2">
+        <img class="gal-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="Balayage natural" loading="lazy" onerror="this.style.background='#1D1D1D';this.remove()">
+        <div class="gal-overlay"><p>Balayage natural</p><small>Coloração</small></div>
+      </div>
+      <div class="gal-cell g3">
+        <img class="gal-img" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80" alt="Escova perfeita" loading="lazy" onerror="this.style.background='#1D1D1D';this.remove()">
+        <div class="gal-overlay"><p>Escova perfeita</p><small>Finalização</small></div>
+      </div>
+      <div class="gal-cell g4">
+        <img class="gal-img" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400&q=80" alt="Corte masculino" loading="lazy" onerror="this.style.background='#1D1D1D';this.remove()">
+        <div class="gal-overlay"><p>Corte moderno</p><small>Masculino</small></div>
+      </div>
+      <div class="gal-cell g5">
+        <img class="gal-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" alt="Hidratação profunda" loading="lazy" onerror="this.style.background='#1D1D1D';this.remove()">
+        <div class="gal-overlay"><p>Hidratação profunda</p><small>Tratamento</small></div>
+      </div>
+      <div class="gal-cell g6">
+        <img class="gal-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700&q=80" alt="Penteado de noiva" loading="lazy" onerror="this.style.background='#1D1D1D';this.remove()">
+        <div class="gal-overlay"><p>Penteado de noiva</p><small>Especial</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="sec sec-dep" id="depoimentos">
+  <div class="sec-inner">
+    <div class="sec-head">
+      <p class="sec-tag">O que dizem</p>
+      <h2 class="sec-h2">Quem <em>confia</em> no Elos</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="dep-stars"><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div></div>
+        <p class="dep-text">Melhor salão de Presidente Getúlio! Fui fazer mechas e saí completamente apaixonada. Atenção incrível e resultado perfeito.</p>
+        <div class="dep-author"><div class="dep-avatar">A</div><div><div class="dep-author-name">Ana Paula S.</div><div class="dep-author-info">Cliente · Google</div></div></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars"><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div></div>
+        <p class="dep-text">Ambiente aconchegante, profissionais super atenciosas. Já indiquei para todas as minhas amigas e voltarei sempre!</p>
+        <div class="dep-author"><div class="dep-avatar">M</div><div><div class="dep-author-name">Mariana T.</div><div class="dep-author-info">Cliente · Instagram</div></div></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars"><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div><div class="dep-star"></div></div>
+        <p class="dep-text">Fiz meu penteado de formatura aqui e ficou exatamente como eu sonhava. Muito cuidado e carinho com cada detalhe.</p>
+        <div class="dep-author"><div class="dep-avatar">J</div><div><div class="dep-author-name">Juliana R.</div><div class="dep-author-info">Cliente · Facebook</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AGENDAMENTO -->
+<div class="sec sec-agendar" id="agendar">
+  <div class="sec-inner">
+    <div class="agd-wrap">
+      <div>
+        <p class="sec-tag">Marque seu horário</p>
+        <h2 class="agd-left-title">Agende sua<br><em>visita</em></h2>
+        <div class="sec-rule" style="margin-bottom:1.8rem"></div>
+        <p class="agd-p">Preencha o formulário e envie pelo WhatsApp. Confirmamos o horário rapidinho!</p>
+
+        <div class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.05 10.8a19.79 19.79 0 01-3.07-8.65A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+          <div><div class="contact-label">WhatsApp</div><div class="contact-value"><a href="https://wa.me/5547991089781" target="_blank" rel="noopener">(47) 99108-9781</a></div></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="contact-label">Horários</div><div class="contact-value">Segunda a Sábado · 08h às 19h</div></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="contact-label">Endereço</div><div class="contact-value"><a href="https://maps.google.com/?q=R.+Curt+Hering+385+Presidente+Getúlio+SC" target="_blank" rel="noopener">R. Curt Hering, 385 — Centro<br>Presidente Getúlio / SC</a></div></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div><div class="contact-label">Instagram</div><div class="contact-value"><a href="https://instagram.com/eloscabeleireiros" target="_blank" rel="noopener">@eloscabeleireiros</a></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="fg">
+          <label>Nome completo</label>
+          <input type="text" id="ag-nome" placeholder="Seu nome" autocomplete="name">
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" id="ag-tel" placeholder="(47) 9 xxxx-xxxx" autocomplete="tel">
+          </div>
+          <div class="fg">
+            <label>Serviço desejado</label>
+            <select id="ag-srv">
+              <option value="">Selecione...</option>
+              <option>Corte Feminino</option>
+              <option>Corte Masculino</option>
+              <option>Coloração / Mechas</option>
+              <option>Escova &amp; Hidratação</option>
+              <option>Progressiva</option>
+              <option>Penteado / Noiva</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Data preferida</label>
+            <input type="date" id="ag-data">
+          </div>
+          <div class="fg">
+            <label>Horário</label>
+            <select id="ag-hora">
+              <option value="">Selecione...</option>
+              <option>08:00</option><option>09:00</option><option>10:00</option>
+              <option>11:00</option><option>13:00</option><option>14:00</option>
+              <option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option>
+            </select>
+          </div>
+        </div>
+        <button class="submit-btn" onclick="agendar()">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar pelo WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contato">
+  <div class="foot-top">
+    <div>
+      <div class="foot-brand-name">ELOS</div>
+      <div class="foot-brand-sub">Cabeleireiros Unissex · Pres. Getúlio/SC</div>
+      <p class="foot-brand-p">Arte, técnica e cuidado em cada detalhe. Atendendo homens e mulheres com carinho e profissionalismo.</p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Menu</div>
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#depoimentos">Avaliações</a></li>
+        <li><a href="#agendar">Agendar</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Serviços</div>
+      <ul>
+        <li><a href="https://wa.me/5547991089781?text=Quero%20agendar%20Corte%20Feminino" target="_blank">Corte Feminino</a></li>
+        <li><a href="https://wa.me/5547991089781?text=Quero%20agendar%20Corte%20Masculino" target="_blank">Corte Masculino</a></li>
+        <li><a href="https://wa.me/5547991089781?text=Quero%20saber%20sobre%20Coloração" target="_blank">Coloração</a></li>
+        <li><a href="https://wa.me/5547991089781?text=Quero%20saber%20sobre%20Noivas" target="_blank">Noivas</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Contato</div>
+      <ul>
+        <li><a href="https://wa.me/5547991089781" target="_blank" rel="noopener">(47) 99108-9781</a></li>
+        <li><a href="https://instagram.com/eloscabeleireiros" target="_blank" rel="noopener">@eloscabeleireiros</a></li>
+        <li><a href="https://maps.google.com/?q=R.+Curt+Hering+385+Presidente+Getúlio+SC" target="_blank" rel="noopener">R. Curt Hering, 385 — Centro</a></li>
+        <li><a href="https://maps.google.com/?q=R.+Curt+Hering+385+Presidente+Getúlio+SC" target="_blank" rel="noopener">Pres. Getúlio / SC</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2025 Elos Cabeleireiros Unissex — Todos os direitos reservados</span>
+    <div class="social-row">
+      <a class="social-btn" href="https://instagram.com/eloscabeleireiros" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a class="social-btn" href="https://wa.me/5547991089781" target="_blank" rel="noopener" title="WhatsApp" style="border-color:rgba(37,211,102,0.3)">
+        <svg viewBox="0 0 24 24" fill="none" style="stroke:var(--wa)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" stroke-width="0.8" fill="var(--wa)"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamBtn = document.getElementById('hamBtn');
+const navMob = document.getElementById('navMob');
+hamBtn.addEventListener('click', () => navMob.classList.toggle('open'));
+function closeMob(){ navMob.classList.remove('open') }
+
+function agendar(){
+  const nome = document.getElementById('ag-nome').value.trim() || 'Cliente';
+  const tel  = document.getElementById('ag-tel').value.trim() || 'não informado';
+  const srv  = document.getElementById('ag-srv').value || 'a definir';
+  const data = document.getElementById('ag-data').value || 'a definir';
+  const hora = document.getElementById('ag-hora').value || 'a definir';
+  const msg = `Olá, Elos Cabeleireiros! 👋\n\nGostaria de agendar um horário:\n• Nome: ${nome}\n• Telefone: ${tel}\n• Serviço: ${srv}\n• Data: ${data}\n• Horário: ${hora}\n\nAguardo confirmação. Obrigado(a)!`;
+  window.open('https://wa.me/5547991089781?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+</body>
+</html>
